@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Bank of Practice</title>
+    <link rel="stylesheet" th:ref="@{/styles.css}">
+</head>
+<body>
+
+<nav th:fragment="navigation">
+    <h1 th:text="${title}">Bank of Practice</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/events">All Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="/events/create">Create Event</a></li>
+        <li class="nav-item"><a class="nav-link" href="/events/delete">Delete Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories">All Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories/create">Create Category</a></li>
+    </ul>
+</nav>
+</body>
+</html>
