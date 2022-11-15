@@ -1,3 +1,17 @@
-body {
+h1 {
     text-align: center;
+    color:lime;
+}
+
+body {
+    background-color: #282828;
+}
+
+p {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
+    text-align:center;
+    color:lime;
 }

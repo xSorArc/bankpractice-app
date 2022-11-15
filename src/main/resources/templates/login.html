@@ -2,6 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
+<h2>Create an Account</h2>
+
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+</ul>
+
+<form method="post">
+    <div>
+        <label>Username</label>
+        <input th:field="${user.username}">
+    </div>
+</form>
 
 </body>
 </html>

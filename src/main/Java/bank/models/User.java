@@ -47,6 +47,14 @@ public class User extends AbstractEntity {
         this.balance = balance;
     }
 
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
     public boolean verifyPassword(String password) {
         return encoder.matches(password, pwHash);
     }

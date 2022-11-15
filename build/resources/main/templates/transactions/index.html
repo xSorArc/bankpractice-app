@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<p th:unless="${transactions} and ${transactions.size()}">No transactions!</p>
+
+<div>
+    <h2>Transactions</h2>
+    <ul>
+        <li th:each="transaction : ${transactions}">
+            <a th:href="@{'/transactions/view + ${transaction.id}}" th:text="${transaction.amount}"></a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
