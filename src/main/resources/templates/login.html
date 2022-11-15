@@ -11,8 +11,15 @@
 <form method="post">
     <div>
         <label>Username</label>
-        <input th:field="${user.username}">
+        <input th:field="${loginFormDTO.username}">
+        <span class="error" th:erros="${loginFormDTO.username}"></span>
     </div>
+    <div>
+        <label>Password</label>
+        <input type="password" th:field="${loginFormDTO.password}">
+        <span class="error" th:erros="${loginFormDTO.password}"></span>
+    </div>
+    <button type="submit">Submit</button>
 </form>
 
 </body>

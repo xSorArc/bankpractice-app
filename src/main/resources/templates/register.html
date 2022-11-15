@@ -3,5 +3,24 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+<form method="post">
+    <div>
+        <label>Username</label>
+        <input th:field="${registerFormDTO.username}">
+        <span class="error" th:erros="${registerFormDTO.username}"></span>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" th:field="${registerFormDTO.password}">
+        <span class="error" th:erros="${registerFormDTO.password}"></span>
+    </div>
+    <div>
+        <label>Verify Password</label>
+        <input type="password" th:field="${registerFormDTO.verifyPassword}">
+        <span class="error" th:erros="${registerFormDTO.verifyPassword}"></span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>
