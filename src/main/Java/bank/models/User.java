@@ -4,13 +4,15 @@ import org.hibernate.validator.constraints.Currency;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
 
-    @NotNull
+    @NotNull(message = "Username required!")
     @Size(min = 3, max = 30, message = "Username must be between 3 and 30 characters.")
     private String username;
 
@@ -19,6 +21,9 @@ public class User extends AbstractEntity {
 
     @Currency(value = "USD")
     private Integer balance;
+
+    @OneToMany
+    private List<Transaction> transactions;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
