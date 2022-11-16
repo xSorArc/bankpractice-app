@@ -55,7 +55,7 @@ public class User extends AbstractEntity {
         this.transactions = transactions;
     }
 
-    public boolean verifyPassword(String password) {
+    public boolean checkPassword(String password) {
         return encoder.matches(password, pwHash);
     }
 }
