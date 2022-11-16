@@ -52,31 +52,33 @@ public class AuthenticationController {
         return "/register";
     }
 
-    //processRegisterForm
-    @PostMapping("register")
+
+    @PostMapping("register") // HttpServletRequest represents the incoming request.
     public String processRegisterFrom(@ModelAttribute @Valid RegisterFormDTO registerFormDTO, Errors errors,
                                       Model model, HttpServletRequest request) {
 
-        User theUser = userRepository.findByUsername(registerFormDTO.getUsername());
+        User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
+        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        String password = registerFormDTO.getPassword();
+        String verifyPassword = registerFormDTO.getVerifyPassword();
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Registration Failed!");
             return "register";
         }
 
-        if (theUser != null) {
+        if (existingUser != null) {
             errors.reject("Registered user", "Username already exists.");
             return "register";
         }
 
-        // TODO: Verify password
-        if (theUser.checkPassword(registerFormDTO.getVerifyPassword())) {
-            // NOT CORRECT IF STATEMENT!
+        if (!password.equals(verifyPassword)) { // (!Objects.equals(password, verifyPassword) also works here.
+            errors.reject("Non-matching passwords", "Passwords do not match");
+            return "register";
         }
 
-        // TODO Create & save new User
-
-        // setUser(request.getSession(), newUser);
+        userRepository.save(newUser); // Store new user in the database.
+        setUserInSession(request.getSession(), newUser); // Creates a new session for user.
         return "redirect:";
     }
 
@@ -91,7 +93,7 @@ public class AuthenticationController {
         User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Log In");
+            model.addAttribute("title", "Log In Failed!");
             return "login";
         }
 
@@ -102,16 +104,15 @@ public class AuthenticationController {
 
         if (theUser.checkPassword(loginFormDTO.getPassword())) {
             errors.reject("Invalid password", "Password is incorrect.");
+            return "login";
         }
 
-        userRepository.save(theUser);
         return "redirect:";
     }
 
     @GetMapping("logout")
     public String logout(HttpServletRequest request) {
-        // TODO: Invalidate the session information.
-
+        request.getSession().invalidate();
         return "redirect:/login";
     }
 }
