@@ -1,6 +1,6 @@
-h1 {
+h1, h2, h3 {
     text-align: center;
-    color:lime;
+    color:white;
 }
 
 body {
@@ -13,5 +13,23 @@ p {
     margin-right: 150px;
     margin-left: 150px;
     text-align:center;
-    color:lime;
+    color:Dodgerblue;
+}
+
+form {
+    text-align:center;
+    background-color:Dodgerblue;
+}
+
+div {
+    padding: 50px
+    border: 10px solid Dodgerblue;
+}
+
+input {
+    margin: 10px;
+}
+
+.cent {
+    text-align:center;
 }

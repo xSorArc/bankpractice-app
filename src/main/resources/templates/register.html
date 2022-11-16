@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: register-nav"></nav>
 <body>
 
 <form method="post">
-    <div>
-        <label>Username</label>
-        <input th:field="${registerFormDTO.username}">
-        <span class="error" th:erros="${registerFormDTO.username}"></span>
+    <h3>Registration Form</h3>
+    <div class="form-group">
+        <input placeholder="Enter name" th:field="${registerFormDTO.username}">
+        <span class="error" th:errors="${registerFormDTO.username}"></span>
     </div>
-    <div>
-        <label>Password</label>
-        <input type="password" th:field="${registerFormDTO.password}">
-        <span class="error" th:erros="${registerFormDTO.password}"></span>
+    <div class="form-group">
+        <input placeholder="Enter password" type="password" th:field="${registerFormDTO.password}">
+        <span class="error" th:errors="${registerFormDTO.password}"></span>
     </div>
-    <div>
-        <label>Verify Password</label>
-        <input type="password" th:field="${registerFormDTO.verifyPassword}">
-        <span class="error" th:erros="${registerFormDTO.verifyPassword}"></span>
+    <div class="form-group">
+        <input placeholder="Verify password" type="password" th:field="${registerFormDTO.verifyPassword}">
+        <span class="error" th:errors="${registerFormDTO.verifyPassword}"></span>
     </div>
-    <button type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit">Register</button>
 </form>
 
 </body>
