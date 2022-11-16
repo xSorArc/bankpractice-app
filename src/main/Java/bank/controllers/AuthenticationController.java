@@ -110,7 +110,7 @@ public class AuthenticationController {
 
     @GetMapping("logout")
     public String logout(HttpServletRequest request) {
-        // TODO: invalidate the session information.
+        // TODO: Invalidate the session information.
 
         return "redirect:/login";
     }
