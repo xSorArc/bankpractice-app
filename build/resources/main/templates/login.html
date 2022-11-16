@@ -2,17 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<h2>Create an Account</h2>
 
 <ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
     <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
 </ul>
 
 <form method="post">
-    <div>
-        <label>Username</label>
-        <input th:field="${user.username}">
+    <h3>Log in Form</h3>
+    <div class="form-group">
+        <input placeholder="Enter name" th:field="${loginFormDTO.username}">
+        <span class="error" th:errors="${loginFormDTO.username}"></span>
     </div>
+    <div class="form-group">
+        <input placeholder="Enter password" type="password" th:field="${loginFormDTO.password}">
+        <span class="error" th:errors="${loginFormDTO.password}"></span>
+    </div>
+    <br>
+    <div class="form-group">
+        <nav class="nav-item"><a class="nav-link" href="/register">Not a member?</a></nav>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 </body>

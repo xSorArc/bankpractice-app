@@ -46,12 +46,13 @@ public class TransactionController {
         return "redirect:";
     }
 
-    //delete
+    // TODO: Add delete()
 
-    //processDelete
+    // TODO: Add processDelete()
+
     @GetMapping("view/{transaction_id}")
     public String displayViewTransaction(Model model, @PathVariable int transaction_id) {
-
+        //Might need Optional object.
         model.addAttribute("transaction", transactionRepository.findById(transaction_id));
         return "transactions/view";
     }

@@ -19,5 +19,15 @@
     </ul>
 </nav>
 
+<nav th:fragment="register-nav">
+    <h1 th:text="${title}">Bank of Practice (nav)</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Personal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Business</a></li>
+    </ul>
+</nav>
+
 </body>
 </html>
