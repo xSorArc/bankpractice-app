@@ -3,23 +3,49 @@
 <head th:replace="fragments :: head"></head>
 
 <body>
-<nav th:replace="fragments :: navigation"></nav>
 
-<!--TODO: Get image to load correctly-->
-<img class="avatar" src="images/bank-icon.jpg" alt="Bank Icon">
+<nav th:replace="fragments :: navigation"></nav>
+<span th:replace="fragments :: icon"></span>
 
 <!--TODO: Make page look better!-->
-<div style="background-color:Dodgerblue" class="mosaic mosaic-version-a row feature-container">
-    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be on the left</div>
-    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be in the middle</div>
-    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">Here at Prac Bank we cater to
-        your needs!
-        With over 3000 years of experience, we help protect your money by any means necessary. Come see one of our
-        many locations, so you can rest easy knowing your money is safe. We have state of the art uncrackable safes,
-        top of the line skin melting laser systems, and facial recognition programs that see through masks!
+<div class="mosaic mosaic-version-a row feature-container">
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">
+        <h2>Stock Market Experts just a click away!</h2>
+        <img style="position:center"
+             src="https://th.bing.com/th/id/OIP.xMCA-abBZDCb0qbE2HrlRQHaE8?w=245&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+             alt="Stocks">
     </div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be in the middle</div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be on the right</div>
 </div>
 
+<span>---</span>
+
+<div class="mosaic mosaic-version-a row feature-container">
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">
+        <h2>Stock Market Experts just a click away!</h2>
+        <img style="position:center"
+             src="https://th.bing.com/th/id/OIP.xMCA-abBZDCb0qbE2HrlRQHaE8?w=245&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+             alt="Stocks">
+    </div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be in the middle</div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be on the right</div>
+</div>
+
+<span>---</span>
+
+<div class="mosaic mosaic-version-a row feature-container">
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">
+        <h2>Stock Market Experts just a click away!</h2>
+        <img style="position:center"
+             src="https://th.bing.com/th/id/OIP.xMCA-abBZDCb0qbE2HrlRQHaE8?w=245&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+             alt="Stocks">
+    </div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be in the middle</div>
+    <div class="mosaic--tile col-lg-4 col-med-4 col-sm-4" style="position: relative">This should be on the right</div>
+</div>
+
+<footer th:replace="fragments :: foot"></footer>
 
 </body>
 </html>

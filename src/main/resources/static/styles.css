@@ -8,6 +8,7 @@ body {
 }
 
 p {
+    text-indent: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
     margin-right: 150px;
@@ -22,14 +23,23 @@ form {
 }
 
 div {
-    padding: 50px
-    border: 10px solid Dodgerblue;
+    /*padding: 5px;
+    border: 10px solid Dodgerblue;*/
+    background-color:Dodgerblue;
 }
 
 input {
     margin: 10px;
 }
 
-.cent {
+.about {
     text-align:center;
 }
+
+.stick {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+

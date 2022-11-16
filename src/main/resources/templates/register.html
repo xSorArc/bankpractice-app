@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <nav th:replace="fragments :: register-nav"></nav>
+<span th:replace="fragments :: icon"></span>
 <body>
 
 <form method="post">
@@ -20,6 +21,8 @@
     </div>
     <button class="btn btn-primary" type="submit">Register</button>
 </form>
+
+<footer th:replace="fragments :: foot"></footer>
 
 </body>
 </html>
