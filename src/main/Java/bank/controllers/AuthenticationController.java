@@ -89,7 +89,9 @@ public class AuthenticationController {
     }
 
     @PostMapping("login")
-    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, Model model) {
+    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors,
+                                   Model model, HttpServletRequest request) {
+
         User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
 
         if (errors.hasErrors()) {
@@ -98,16 +100,17 @@ public class AuthenticationController {
         }
 
         if (theUser == null) {
-            errors.reject("Invalid user", "User does not exist.");
+            errors.rejectValue("username", "Unknown user", "User does not exist.");
             return "login";
         }
 
-        if (theUser.checkPassword(loginFormDTO.getPassword())) {
-            errors.reject("Invalid password", "Password is incorrect.");
+        if (!theUser.checkPassword(loginFormDTO.getPassword())) {
+            errors.rejectValue("password", "Invalid password", "Password is incorrect.");
             return "login";
         }
 
-        return "redirect:";
+        setUserInSession(request.getSession(), theUser);
+        return "redirect:/profile";
     }
 
     @GetMapping("logout")
