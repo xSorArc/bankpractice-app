@@ -1,6 +1,5 @@
 package bank.models;
 
-import org.hibernate.validator.constraints.Currency;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
@@ -19,10 +18,10 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-    @Currency(value = "USD")
+    //    @Currency(value = "USD")
     private Integer balance;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
