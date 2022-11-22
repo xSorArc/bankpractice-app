@@ -3,16 +3,29 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
+<nav th:replace="fragments :: navigation"></nav>
+<span th:replace="fragments :: icon"></span>
+
 <p th:unless="${transactions} and ${transactions.size()}">No transactions!</p>
 
-<div>
-    <h2>Transactions</h2>
-    <ul>
-        <li th:each="transaction : ${transactions}">
-            <a th:href="@{'/transactions/view + ${transaction.id}}" th:text="${transaction.amount}"></a>
-        </li>
-    </ul>
-</div>
+<!--<div>-->
+<table>
+    <thead>
+    <tr style="text-align:center" class="text-center">
+        <th>ID</th>
+        <th>Point of Sale</th>
+        <th>Date
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tr style="color:white; text-align:center" class="text-center" th:each="transaction : ${transactions}">
+        <td th:text="${transaction.id}"></td>
+        <td th:text="${transaction.recipient}"></td>
+        <td th:text="${transaction.timeStamp}"></td>
+        <td th:text="${transaction.amount}"></td>
+    </tr>
+</table>
+<!--</div>-->
 
 </body>
 </html>

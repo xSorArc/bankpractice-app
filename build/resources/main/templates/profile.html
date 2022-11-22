@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="head"></head>
+<head th:replace="fragments :: head"></head>
 <body>
 
-<!--SHOW recent transactions, balance-->
+<nav th:replace="fragments :: profile-nav"></nav>
+<span th:replace="fragments :: icon"></span>
+<h2 th:text="'Welcome, ' + ${title}">Welcome, you!</h2>
 
+<!--TODO: Fix error showing username-->
+<!--TODO: SHOW recent transactions (last 3 with link to all transactions), balance-->
+<!--balance in a square box & transactions in a table-->
 
-<footer th:replace="fragments :: foot"></footer>
+<footer class="text-center" th:replace="fragments :: foot"></footer>
 
 </body>
 </html>
