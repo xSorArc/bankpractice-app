@@ -21,11 +21,11 @@ public class TransactionController {
     @Autowired
     TransactionRepository transactionRepository;
 
-    @GetMapping
+    @GetMapping("")
     public String index(Model model) {
         model.addAttribute("title", "All Transactions");
         model.addAttribute("transactions", transactionRepository.findAll());
-        return "index";
+        return "transactions/index";
     }
 
     @GetMapping("add")
@@ -43,12 +43,23 @@ public class TransactionController {
             return "transactions/add";
         }
         transactionRepository.save(newTransaction);
-        return "redirect:";
+        return "redirect:/transactions";
     }
 
     // TODO: Add delete()
+//    @GetMapping("delete")
+//    public String deleteTransaction(Model model, Transaction transaction) {
+//        showMessageDialog(null, "Are you sure you want to delete this?");
+//
+//        return "transactions/index";
+//    }
 
     // TODO: Add processDelete()
+//    @PostMapping("delete")
+//    public String processDeleteTransactionForm() {
+//
+//        return "";
+//    }
 
     @GetMapping("view/{transaction_id}")
     public String displayViewTransaction(Model model, @PathVariable int transaction_id) {
