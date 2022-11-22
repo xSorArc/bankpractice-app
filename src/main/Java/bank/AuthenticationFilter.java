@@ -23,7 +23,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter implements H
     private AuthenticationController authenticationController;
 
     // Whitelist: List of items NOT subject to restriction
-    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/styles.css", "/",
+    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/styles.css",
             "/about");
 
     // Takes a string representing a URL path and checks to see if it starts with any entry from whitelist.
