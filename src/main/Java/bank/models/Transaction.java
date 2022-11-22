@@ -1,6 +1,5 @@
 package bank.models;
 
-import org.hibernate.validator.constraints.Currency;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -14,28 +13,34 @@ import java.time.LocalDateTime;
 public class Transaction extends AbstractEntity {
 
     @NotNull
-    @Currency(value = "USD")
-    private int amount;
+//    @Currency(value = "USD")
+    private double amount;
 
     @NotBlank(message = "Recipient can not be empty.")
     @Size(min = 1, max = 255)
     private String recipient;
 
-    @NotBlank
     @DateTimeFormat
-    private LocalDateTime timeStamp = LocalDateTime.now();
+    private LocalDateTime timeStamp;
 
     @ManyToOne
     private User user;
 
     public Transaction() {
+
     }
 
-    public int getAmount() {
+    public Transaction(double amount, String recipient, LocalDateTime timeStamp) {
+        this.amount = amount;
+        this.recipient = recipient;
+        this.timeStamp = LocalDateTime.now();
+    }
+
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
