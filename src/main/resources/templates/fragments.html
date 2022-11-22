@@ -10,24 +10,28 @@
 </head>
 <body>
 
+<!--Put navigation inside head fragment?-->
 <nav th:fragment="navigation">
     <h1 th:text="${title}">Bank of Practice (nav)</h1>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
-        <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Personal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Personal</a></li>
         <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Business</a></li>
         <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Loans</a></li>
         <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Investments</a></li>
     </ul>
 </nav>
 
-<nav th:fragment="register-nav">
+<nav th:fragment="profile-nav">
     <h1 th:text="${title}">Bank of Practice (nav)</h1>
     <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Personal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Personal</a></li>
         <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Business</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions">TempTransLink</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions/add">Add Transaction</a></li>
     </ul>
 </nav>
 
@@ -41,7 +45,7 @@
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Donate</a></li>
-            <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Affliates</a></li>
+            <li class="nav-item"><a class="nav-link" href="/DoesNotExist">Affiliates</a></li>
         </ul>
     </nav>
 </footer>
