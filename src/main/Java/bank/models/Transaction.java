@@ -21,19 +21,13 @@ public class Transaction extends AbstractEntity {
     private String recipient;
 
     @DateTimeFormat
-    private LocalDateTime timeStamp;
+    private LocalDateTime timeStamp = LocalDateTime.now();
 
     @ManyToOne
     private User user;
 
     public Transaction() {
 
-    }
-
-    public Transaction(double amount, String recipient, LocalDateTime timeStamp) {
-        this.amount = amount;
-        this.recipient = recipient;
-        this.timeStamp = LocalDateTime.now();
     }
 
     public double getAmount() {
