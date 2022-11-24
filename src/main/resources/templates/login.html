@@ -13,11 +13,11 @@
 <form method="post">
     <h3>Log in Form</h3>
     <div class="form-group">
-        <input placeholder="Enter name" th:field="${loginFormDTO.username}">
+        <input placeholder="Enter name" th:field="${loginFormDTO.username}"><br>
         <span class="error" th:errors="${loginFormDTO.username}"></span>
     </div>
     <div class="form-group">
-        <input placeholder="Enter password" type="password" th:field="${loginFormDTO.password}">
+        <input placeholder="Enter password" type="password" th:field="${loginFormDTO.password}"><br>
         <span class="error" th:errors="${loginFormDTO.password}"></span>
     </div>
     <br>
