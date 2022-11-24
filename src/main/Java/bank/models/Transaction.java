@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 public class Transaction extends AbstractEntity {
@@ -20,8 +20,9 @@ public class Transaction extends AbstractEntity {
     @Size(min = 1, max = 255)
     private String recipient;
 
+    //    TODO: Fix time to show without nanoseconds.
     @DateTimeFormat
-    private LocalDateTime timeStamp = LocalDateTime.now();
+    private LocalDate timeStamp = LocalDate.now();
 
     @ManyToOne
     private User user;
@@ -46,11 +47,11 @@ public class Transaction extends AbstractEntity {
         this.recipient = recipient;
     }
 
-    public LocalDateTime getTimeStamp() {
+    public LocalDate getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
+    public void setTimeStamp(LocalDate timeStamp) {
         this.timeStamp = timeStamp;
     }
 }
