@@ -19,8 +19,7 @@ public class Transaction extends AbstractEntity {
     @NotBlank(message = "Recipient can not be empty.")
     @Size(min = 1, max = 255)
     private String recipient;
-
-    //    TODO: Fix time to show without nanoseconds.
+    
     @DateTimeFormat
     private LocalDate timeStamp = LocalDate.now();
 
