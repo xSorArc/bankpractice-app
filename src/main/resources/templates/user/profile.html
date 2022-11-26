@@ -5,11 +5,17 @@
 
 <nav th:replace="fragments :: profile-nav"></nav>
 <span th:replace="fragments :: icon"></span>
-<h2 th:text="'Welcome, ' + ${title}">Welcome, you!</h2>
+<h2 th:text="'Welcome, ' + ${name}">Welcome, you!</h2>
 
 <!--TODO: Fix error showing username-->
-<!--TODO: SHOW recent transactions (last 3 with link to all transactions), balance-->
+<!--TODO: SHOW recent transactions (last 3 with link to all transactions)-->
+<!--TODO: Show balance-->
 <!--balance in a square box & transactions in a table-->
+<span class="mosaic--tile col-lg-4 col-md-4 col-sm-4">
+    <h3 th:text="'Balance: ' + ${balance}">Balance: $0</h3>
+    <!--    <a th:href=""></a>-->
+    <span></span>
+</span>
 
 <footer class="text-center" th:replace="fragments :: foot"></footer>
 
