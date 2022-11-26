@@ -52,7 +52,6 @@ public class AuthenticationController {
         return "/register";
     }
 
-
     @PostMapping("register") // HttpServletRequest represents the incoming request.
     public String processRegisterFrom(@ModelAttribute @Valid RegisterFormDTO registerFormDTO, Errors errors,
                                       Model model, HttpServletRequest request) {
@@ -68,12 +67,12 @@ public class AuthenticationController {
         }
 
         if (existingUser != null) {
-            errors.reject("Registered user", "Username already exists.");
+            errors.rejectValue("username", "Registered user", "Username already exists.");
             return "register";
         }
 
         if (!password.equals(verifyPassword)) { // (!Objects.equals(password, verifyPassword) also works here.
-            errors.reject("Non-matching passwords", "Passwords do not match");
+            errors.rejectValue("verifyPassword", "Non-matching passwords", "Passwords do not match");
             return "register";
         }
 
@@ -110,7 +109,7 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUser);
-        return "redirect:/profile";
+        return "redirect:/user/profile";
     }
 
     @GetMapping("logout")
