@@ -46,25 +46,29 @@ public class TransactionController {
         return "redirect:/transactions";
     }
 
-    // TODO: Add delete()
-//    @GetMapping("delete")
-//    public String deleteTransaction(Model model, Transaction transaction) {
-//        showMessageDialog(null, "Are you sure you want to delete this?");
-//
-//        return "transactions/index";
-//    }
+    @GetMapping("delete")
+    public String displayDeleteTransaction(Model model) {
+        model.addAttribute("title", "Delete Form");
+        model.addAttribute("transactions", transactionRepository.findAll());
+        return "transactions/index";
+    }
 
     // TODO: Add processDelete()
-//    @PostMapping("delete")
-//    public String processDeleteTransactionForm() {
-//
-//        return "";
-//    }
-
-    @GetMapping("view/{transaction_id}")
-    public String displayViewTransaction(Model model, @PathVariable int transaction_id) {
-        //Might need Optional object.
-        model.addAttribute("transaction", transactionRepository.findById(transaction_id));
-        return "transactions/view";
+    @PostMapping("delete")
+    public String processDeleteTransactionForm(@RequestParam(required = false) int[] transactionIds) {
+//        showMessageDialog(null, "Are you sure you want to delete this?");
+        if (transactionIds != null) {
+            for (int id : transactionIds) {
+                transactionRepository.deleteById(id);
+            }
+        }
+        return "redirect:";
     }
+
+//    @GetMapping("view/{transaction_id}")
+//    public String displayViewTransaction(Model model, @PathVariable int transaction_id) {
+//        //Might need Optional object.
+//        model.addAttribute("transaction", transactionRepository.findById(transaction_id));
+//        return "transactions/view";
+//    }
 }
