@@ -2,9 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-
+<nav th:replace="fragments :: profile-nav"></nav>
 <span th:replace="fragments :: icon"></span>
 <h2 th:text="${title}">Error</h2>
+
+<!--TODO: Add link? Or dropdown to add balance.-->
 
 <form method="post">
     <div class="form-group">

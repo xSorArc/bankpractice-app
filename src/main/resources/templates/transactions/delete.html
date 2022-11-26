@@ -2,6 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:repalce="fragments :: head"></head>
 <body>
+<nav th:replace="fragments :: profile-nav"></nav>
+<span th:replace="fragments :: icon"></span>
+
+<form method="post">
+
+    <!--    TODO: Fix form display error-->
+    <th:block th:each="transaction: ${transactions}">
+        <div class="form-group">
+            <label>
+                <span th:text="${transaction.recipient}"></span>
+                <input type="checkbox" name="transactionIds" th:value="${transaction.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+
+</form>
 
 </body>
 </html>
