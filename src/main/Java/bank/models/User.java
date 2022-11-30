@@ -19,7 +19,7 @@ public class User extends AbstractEntity {
     private String pwHash;
 
     //    @Currency(value = "USD")
-    private Integer balance = 0;
+    private double balance = 0;
 
     @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
@@ -38,11 +38,11 @@ public class User extends AbstractEntity {
         return username;
     }
 
-    public Integer getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
