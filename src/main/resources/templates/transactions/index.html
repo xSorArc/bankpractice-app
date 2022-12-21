@@ -23,9 +23,11 @@
             <td th:text="${transaction.recipient}"></td>
             <td th:text="${transaction.timeStamp}"></td>
             <td th:text="${transaction.amount}"></td>
+            <td>
+                <a id="delete" th:href="@{/transactions/delete}">Delete</a>
+            </td>
         </tr>
     </table>
 </div>
-
 </body>
 </html>
